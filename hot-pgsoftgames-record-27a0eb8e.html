@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>持续关注与再次打开 · PG游戏</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #faf9f7;
+            font-family: "Noto Serif SC", "Georgia", "Times New Roman", serif;
+            color: #1e1e1e;
+            line-height: 1.8;
+            padding: 2rem 1.2rem 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 640px;
+            width: 100%;
+        }
+
+        .hero {
+            margin: 4rem 0 2.5rem 0;
+        }
+
+        .hero .kicker {
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #9b8c7c;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            line-height: 1.3;
+            letter-spacing: 0.01em;
+            color: #1e1e1e;
+            border-left: 3px solid #b8a48e;
+            padding-left: 1.2rem;
+        }
+
+        .intro-text {
+            font-size: 1.05rem;
+            margin-bottom: 2.8rem;
+            color: #2d2d2d;
+        }
+
+        .intro-text p {
+            margin-bottom: 1.4rem;
+        }
+
+        .intro-text a {
+            color: #6b4f3c;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            transition: color 0.15s;
+        }
+
+        .intro-text a:hover {
+            color: #3a2c22;
+        }
+
+        .pull-quote {
+            font-size: 1rem;
+            font-style: italic;
+            color: #6b5b4c;
+            border-left: 2px solid #d5c9bd;
+            padding: 0.8rem 1.4rem;
+            margin: 2rem 0 2.4rem 0;
+            background: #f3efe9;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 2.2rem 0 2.6rem 0;
+        }
+
+        .feature-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed #e0d7ce;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list .marker {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: #b8a48e;
+            border-radius: 50%;
+            margin-top: 0.7rem;
+            flex-shrink: 0;
+        }
+
+        .scene-block {
+            background: #f5f1ec;
+            padding: 1.8rem 2rem;
+            border-radius: 12px;
+            margin: 2.6rem 0 2rem 0;
+        }
+
+        .scene-block h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #3d322b;
+        }
+
+        .scene-block p {
+            font-size: 0.98rem;
+            color: #3a3a3a;
+        }
+
+        .faq-mini {
+            margin: 2.8rem 0 2.2rem 0;
+            border-top: 1px solid #e8e1d8;
+            padding-top: 1.8rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 1rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #ede7e0;
+            cursor: pointer;
+        }
+
+        .faq-mini details:last-of-type {
+            border-bottom: none;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            color: #3d322b;
+            font-size: 0.95rem;
+            padding: 0.2rem 0;
+            list-style: none;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-mini summary::before {
+            content: "·";
+            color: #b8a48e;
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+
+        .faq-mini details[open] summary::before {
+            content: "‒";
+        }
+
+        .faq-mini .answer {
+            font-size: 0.9rem;
+            color: #555;
+            padding: 0.3rem 0 0.5rem 1.2rem;
+        }
+
+        .closing {
+            margin: 3rem 0 1rem 0;
+            font-size: 1rem;
+            padding: 1.2rem 0 0 0;
+            border-top: 1px solid #e8e1d8;
+            color: #3a3a3a;
+        }
+
+        .closing p {
+            margin-bottom: 0.6rem;
+        }
+
+        .closing a {
+            color: #6b4f3c;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .closing a:hover {
+            color: #2c1f17;
+        }
+
+        .footnote {
+            margin-top: 4rem;
+            font-size: 0.75rem;
+            color: #a99b8e;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1.2rem 1rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 1.7rem;
+                padding-left: 0.9rem;
+            }
+
+            .scene-block {
+                padding: 1.2rem 1.2rem;
+            }
+
+            .feature-list li {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <div class="hero">
+        <div class="kicker">再次翻开</div>
+        <h1>每次回来，都有一种熟悉的陌生感</h1>
+    </div>
+
+    <div class="intro-text">
+        <p>
+            有些地方你总是不经意间再次打开。不是因为需要，而是因为记得。记得那个下午无意中点进去，页面加载得很快，色彩温和，没有多余的弹窗。后来每次想短暂地放空，都会想起那里。这次也一样，我再次打开了 <a href="https://hot-pgsoftgames.com">PG游戏</a> ，像翻开一本旧杂志，封面变了，但手感没变。
+        </p>
+        <p>
+            收藏夹里的链接常常积灰，但有些总会隔段时间就点一次。不是沉迷，更像是一种习惯性驻足。页面上的内容在更新，但那种克制、干净的节奏始终如一。不需要重新适应，也不用费力寻找入口。它就在那里，安安静静的，等你决定停留多久。
+        </p>
+    </div>
+
+    <div class="pull-quote">
+        “收藏，有时不是为了未来，而是为了保留一种随时可以回去的可能。”
+    </div>
+
+    <p style="margin-bottom: 0.2rem; font-weight: 500; color: #3d322b;">一些让我持续关注的理由</p>
+    <ul class="feature-list">
+        <li><span class="marker"></span> 不刻意打扰的界面设计，每次打开都像是第一次，又像是从未离开</li>
+        <li><span class="marker"></span> 内容节奏稳定，不会突然改变风格或增加喧宾夺主的元素</li>
+        <li><span class="marker"></span> 在浏览器标签页里静静待着，适合某个间隙重新点开</li>
+        <li><span class="marker"></span> 没有强推的通知或诱导，你完全按自己的步调来</li>
+        <li><span class="marker"></span> 即使隔了几个月再回来，依然能快速找到之前的熟悉感</li>
+    </ul>
+
+    <div class="scene-block">
+        <h3>一个安静的午后场景</h3>
+        <p>
+            雨停了，窗外的光线偏冷。打开笔记本，屏幕停留在上次未关闭的标签页。光标移到收藏夹，鼠标悬停，然后点下去。页面重新加载，还是那种柔和的底色。没有急着滑动，只是看着欢迎的句子，喝了一口水。那一刻觉得，有些网站值得留一个位置，不是为了功能，而是为了那种分寸感。
+        </p>
+    </div>
+
+    <div class="faq-mini">
+        <details>
+            <summary>为什么我会反复打开同一个站点？</summary>
+            <div class="answer">
+                不是所有重复都源于习惯。有些是因为页面营造的氛围让人不需要思考，直接进入一种放松的浏览状态。设计简单、反馈轻柔，就自然想再来。
+            </div>
+        </details>
+        <details>
+            <summary>收藏夹里的链接越来越多，如何取舍？</summary>
+            <div class="answer">
+                如果三个月以内你再次点开过，就值得保留。如果每次点开都觉得“啊，还是这样”，那它已经是你的静默坐标了。<a href="https://hot-pgsoftgames.com">PG游戏</a> 对我来说就是这样的坐标。
+            </div>
+        </details>
+        <details>
+            <summary>持续关注会不会变得乏味？</summary>
+            <div class="answer">
+                如果内容一成不变，可能真的会。但好的站点会在不变的结构里慢慢更新细节，像墙纸的花纹悄悄换了一种。你未必第一时间注意到，但某次再看，会觉得舒服。
+            </div>
+        </details>
+    </div>
+
+    <div class="closing">
+        <p>
+            所以，我把它留在了收藏栏的前排。不赶时间，也不为特定目的。只是知道它在那里，便足够了。
+        </p>
+        <p>
+            如果你也恰好想找个安静的去处，不妨下次打开浏览器时，试试那个你已经收藏但很久没点开的链接——<a href="https://hot-pgsoftgames.com">PG游戏</a>。或许它变化不大，但那种熟悉的感觉，本身就是一种难得的连贯。
+        </p>
+    </div>
+
+    <div class="footnote">
+        写于一次普通的再次打开之后
+    </div>
+
+</div>
+</body>
+</html>
